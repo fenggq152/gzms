@@ -1,0 +1,55 @@
+Library: D:\ORG\ORG.PBL
+    Object: w_org
+        Instance Variables
+            (0011): Warning     C0190: Instance variables of local structure type ('font_info') will be implicitly private in the next release.
+        Event: w_org::ue_delete_object
+            (0011): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+            (0015): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Event: w_org::ue_print
+            (0006): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+            (0009): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+        Event: w_org::ue_save
+            (0022): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Event: w_org::ue_load
+            (0016): Warning     C0151: Function 'dwCreate' has been renamed to 'Create' (no prefix), switch to the new name
+        Event: w_org::ue_change_font
+            (0010): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Event: w_org::ue_change_zoom_size
+            (0004): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+        Event: w_org::ue_toggle_grid
+            (0063): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+            (0072): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+        Function: w_org::wf_modifydw
+            (0004): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+        Function: w_org::wf_redraw_line
+            (0012): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+        Function: w_org::wf_parse_line_tag
+            (0005): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Function: w_org::wf_create_line
+            (0026): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+            (0027): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+            (0028): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+        Function: w_org::wf_select_object
+            (0006): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Function: w_org::wf_zoom
+            (0004): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Function: w_org::wf_font_size
+            (0004): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Function: w_org::wf_font_face
+            (0004): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Function: w_org::wf_draw_line
+            (0013): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+            (0028): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+            (0083): Warning     C0151: Function 'dwSetPosition' has been renamed to 'SetPosition' (no prefix), switch to the new name
+        Event: dw_drawing::redraw_lines
+            (0002): Information C0149: The identifier 'is_start_obj' conflicts with an existing property with this name in the parent class.  The new definition of 'is_start_obj' will take precedence and the prior value will be ignored until this version of 'is_start_obj' goes out of scope
+            (0002): Information C0149: The identifier 'is_end_obj' conflicts with an existing property with this name in the parent class.  The new definition of 'is_end_obj' will take precedence and the prior value will be ignored until this version of 'is_end_obj' goes out of scope
+            (0002): Information C0148: The identifier 'object' conflicts with an existing property with this name.  The new definition of 'object' will take precedence and the prior value will be ignored until this version of 'object' goes out of scope
+            (0022): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+        Event: dw_drawing::rbuttondown
+            (0001): Information C0148: The identifier 'object' conflicts with an existing property with this name.  The new definition of 'object' will take precedence and the prior value will be ignored until this version of 'object' goes out of scope
+            (0004): Warning     C0151: Function 'dwGetObjectAtPointer' has been renamed to 'GetObjectAtPointer' (no prefix), switch to the new name
+            (0007): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+            (0014): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name
+            (0036): Warning     C0151: Function 'dwModify' has been renamed to 'Modify' (no prefix), switch to the new name
+            (0043): Warning     C0151: Function 'dwDescribe' has been renamed to 'Describe' (no prefix), switch to the new name

@@ -1,0 +1,208 @@
+年终数据转贮步骤
+
+1.备份数据
+  恢复数据
+  
+
+
+2.删除CL11的台帐数据
+   SELECT count(JR_DeskRecord.PlaneCode)  
+    FROM JR_DeskRecord ,BD_DeskRecord 
+   WHERE ( JR_DeskRecord.PlaneCode = BD_DeskRecord.PlaneCode ) AND  
+         ( JR_DeskRecord.Batchcode = BD_DeskRecord.Batchcode ) AND
+         ( BD_DeskRecord.StepID = '99' ) AND  
+         ( BD_DeskRecord.fdate_BZ < '2007-12-1' )  
+
+  SELECT JR_DeskRecord.fdate,   
+         JR_DeskRecord.PlaneCode,   
+         JR_DeskRecord.Batchcode  
+    FROM JR_DeskRecord  
+   WHERE ( JR_DeskRecord.StepId = '1' ) AND  
+         ( JR_DeskRecord.PlaneCode+JR_DeskRecord.Batchcode in (  SELECT BD_DeskRecord.PlaneCode+BD_DeskRecord.Batchcode  
+                                                                       FROM BD_DeskRecord ))   
+           ;
+ 
+  SELECT BD_DeskRecord.StepID,   
+         BD_DeskRecord.fdate_BZ,   
+         BD_DeskRecord.PlaneCode,   
+         BD_DeskRecord.Batchcode  
+    FROM BD_DeskRecord  
+   WHERE ( BD_DeskRecord.StepID = '99' ) AND  
+         ( BD_DeskRecord.fdate_BZ < '2008-1-1' )   ;
+
+  DELETE FROM BD_DeskRecord  
+   WHERE ( BD_DeskRecord.StepID = '99' ) AND  
+         ( BD_DeskRecord.fdate_BZ < '2008-1-1' )   ;
+
+  delete FROM JR_DeskRecord  
+   WHERE JR_DeskRecord.fdate < '2008-1-1' AND
+			rtrim(ltrim(JR_DeskRecord.PlaneCode))+rtrim(ltrim(JR_DeskRecord.Batchcode)) not in (  SELECT rtrim(ltrim(BD_DeskRecord.PlaneCode))+rtrim(ltrim(BD_DeskRecord.Batchcode))  
+                                                                     FROM BD_DeskRecord )  
+
+
+
+3.删除CL21的台帐数据
+  SELECT StepID,fdate_BZ,DeskRecord_CL21.PlaneCode,   
+         DeskRecord_CL21.Batchcode,   
+         DeskRecord_CL21.fdate_JR,   
+         DeskRecord_CL21.schedule_JR  
+    FROM DeskRecord_CL21  
+   WHERE ( DeskRecord_CL21.StepID = '99' ) AND  
+         ( DeskRecord_CL21.fdate_BZ < '2008-1-1' )   ;
+
+  DELETE FROM DeskRecord_CL21  
+   WHERE ( DeskRecord_CL21.StepID = '99' ) AND  
+         ( DeskRecord_CL21.fdate_BZ < '2008-1-1' )   ;
+
+4.删除仓库进出库记录的数据
+
+  SELECT Count(CK_WareHouseRecord.fdate  )
+    FROM CK_WareHouseRecord  
+   WHERE CK_WareHouseRecord.fdate < '2008-1-1'   ;
+
+  DELETE FROM CK_WareHouseRecord  
+   WHERE CK_WareHouseRecord.fdate < '2008-1-1'   ;
+
+5.删除条码的数据
+  SELECT TM_Box_HistoryRec.CLType,   
+         TM_Box_HistoryRec.TMNo  
+    FROM TM_Box_HistoryRec  
+   WHERE TM_Box_HistoryRec.InTime < '2008-1-1'   ;
+
+  SELECT TM_HistoryRec.CLType,   
+         TM_HistoryRec.TMNo  
+    FROM TM_HistoryRec  
+   WHERE TM_HistoryRec.PrnTime < '2008-1-1'   ;
+
+DELETE  FROM TM_Box_HistoryRec  
+   WHERE TM_Box_HistoryRec.InTime < '2008-1-1'   ;
+
+DELETE  FROM TM_OtherRec
+   WHERE TM_OtherRec.DoDate < '2008-1-1'   ;
+
+
+DELETE  FROM TM_HistoryRec
+   WHERE TM_HistoryRec.PrnTime < '2008-1-1' AND
+	rtrim(ltrim(TM_HistoryRec.cltype))+rtrim(ltrim(TM_HistoryRec.TMNO)) not in (  SELECT rtrim(ltrim(TM_Box_HistoryRec.cltype))+rtrim(ltrim(TM_Box_HistoryRec.TMNO))  
+                                                                     FROM TM_Box_HistoryRec )  ;
+
+6.删除工资的数据
+  SELECT GZ_DataTable.TableID  
+    FROM GZ_DataTable  
+   WHERE GZ_DataTable.GZTime < '2008-1-1'   ;
+
+
+DELETE  FROM GZ_DataTable  
+   WHERE GZ_DataTable.GZTime < '2008-1-1'   ;
+
+6.删除   的数据 
+ SELECT COUNT(*)  
+    FROM KQ_ManUndoRec  
+   WHERE KQ_ManUndoRec.fdate < '2008-1-1'   ;
+
+DELETE  FROM KQ_ManUndoRec  
+   WHERE KQ_ManUndoRec.fdate < '2008-1-1'   ;
+
+DELETE  FROM KQ_ManUndoRec1  
+   WHERE KQ_ManUndoRec1.fdate < '2008-1-1'   ;
+
+DELETE  FROM ManHourRecord  
+   WHERE ManHourRecord.fdate < '2008-1-1'   ;
+
+DELETE  FROM PC_fq
+   WHERE PC_fq.ldate < '2008-1-1'   ;
+
+DELETE  FROM PC_jr
+   WHERE PC_jr.ldate < '2008-1-1'   ;
+
+DELETE  FROM PC_jrperson
+   WHERE PC_jrperson.ldate < '2008-1-1'   ;
+
+DELETE  FROM Product
+   WHERE Product.fdate < '2008-1-1'   ;
+
+DELETE  FROM RS_EmployeeClassRec
+   WHERE RS_EmployeeClassRec.fdate < '2008-1-1'   ;
+
+
+DELETE  FROM SB_Servicerecord
+   WHERE SB_Servicerecord.servicedate < '2007-1-1'   ;
+
+DELETE  FROM SB_Workrecord
+   WHERE SB_Workrecord.indate < '2007-1-1'   ;
+
+
+DELETE FROM badrecord_wj
+   WHERE fdate < '2007-1-1'   ;
+
+DELETE FROM BZ_DeskRecord
+   WHERE fdate_bz < '2007-1-1'   ;
+
+DELETE FROM BZ_DeskRecord_cl21
+   WHERE fdate_bz < '2007-1-1'   
+
+
+
+DELETE FROM  QM_InciseRecord
+ where date < '2009-01-01'
+
+DELETE FROM  QM_ManAidRecord
+ where fdate < '2009-01-01'
+
+可删除表：
+A2_warehouserecord 
+A3_DESKRECORD_ALL_G
+A3_DESKRECORD_ALL
+A4_DESKRECORD_WJ
+A5_DESKRECORD_FX
+A6_DESKRECORD_BZ
+AQOA_DM_WF_Type
+cl11_jy
+cl11_kpsr
+cl21_jy
+cl21_cy
+CL21New_Line
+CL21New_Data
+CL21New_LineDefine
+CL21New_LineCode
+CP
+d_ck_ht
+dd_chk
+DeskRecord_CL21_2_Step
+DeskRecord_CL21_2
+DM_CapTypecode_copy
+DM_NT_Target_copy
+d_ck_person1
+d_ck_person
+goodsBackBill
+Graph开头的所有表
+JH_RationTableNew2
+JH_RationTable_BuCong
+JH_RationTable
+JH_RationTableNew
+JY_New_BadRecord_cl21_h
+kctranslist
+Kz_bz
+ManHourRecord_21_tk
+ManHourRecord_cl21_h
+
+存储过程
+
+proc_copy_data
+proc_copy_data_all
+
+---查询表记录数
+SELECT a.name, b.rows
+
+FROM sysobjects AS a INNER JOIN sysindexes AS b ON a.id = b.id
+
+WHERE (a.type = 'u') AND (b.indid IN (0, 1))
+
+ORDER BY b.rows DESC
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+本程序在Win98下可以正常运行。但Win2000和WinXP下没有任何效果显示，因对Win2000和WinXP的API函数没研究，所以猜想是由于NT的图形显示API函数与98不同而导致的。如果您对这方面有研究并且有空的话可以顺便帮作者改进一下。谢谢，请给作者EMAIL！
+用到的API函数：
+function uint GetDC(uint hwnd) library "user32.dll"
+function long BitBlt(uint hdcdest,int xdest,int ydest,int wdest,int hdest,uint hdcsrc,int xsrc,int ysrc,ulong dwrop) library "gdi32.dll"
+function long StretchBlt(uint hddest,int xdest,int ydest,int wdest,int hdest,uint hdsrc,int xsrc,int ysrc,int wsrc,int hsrc,ulong dwrop) library "gdi32.dll"
+function ulong ReleaseDC(ulong hwnd,ulong hdc) library "user32.dll" 
+function ulong CreateCompatibleDC(ulong hdc) library "gdi32.dll"
+function ulong DeleteDC(ulong hdc) library "gdi32.dll"
+function ulong SelectObject(ulong hdc ,ulong hobject) library "gdi32.dll"
+function ulong DeleteObject(ulong hobject) library "gdi32.dll"
+function ulong LoadImageA(ulong hintance, ref string filename,uint utype,int width,int height,uint fload) library "user32.dll"
+SUBROUTINE Sleep(long dwMilliseconds) Library "kernel32
+
+//启动打印机   (vcHDC是指定预览句柄设备，bPreview为是否预览)
+function UTC_Begin(vcHDC: HDC; bPreview: Boolean): Boolean; stdcall;  external 'UTC_Prn.dll';
+
+Function Boolean UTC_Begin(ulong vcHDC, Boolean bPreview) Library "UTC_Prn.dll" 
+
+//指定字体，字形，大小
+function UTC_SetFont(FontName: PChar; FontSize: Integer; Bold, Italic,
+  Underline, StrikeOut: Boolean): Boolean; stdcall; external 'UTC_Prn.dll';
+
+Function Boolean UTC_SetFont(ref string FontName, uint FontSize,Boolean bold,Boolean Italic,Boolean Underline, Boolean StrikeOut) Library "UTC_Prn.dll" 
+
+
+//打印指定的文字
+function UTC_Text(x, y: Real; sText: PChar; angle: Integer): Boolean; stdcall; external 'UTC_Prn.dll';
+
+function Boolean UTC_Text(Real x, Real y,ref string sText,uint angle) Library  'UTC_Prn.dll';
+
+//设置条码的相对宽度比例
+procedure UTC_SetBCRatio(iRatio: Integer); stdcall; external 'UTC_Prn.dll';
+
+//打印直线
+function UTC_Line(X1, Y1, X2, Y2: Real; PenWidth: Integer): Boolean; stdcall; external 'UTC_Prn.dll';
+
+//打印条形码
+function UTC_Barcode(X, Y, Width, Height: Real; BarcodeData, BarcodeType: PChar; Angle: Integer; IsReadable: Boolean): Boolean; stdcall;
+  external  'UTC_Prn.dll';
+
+//打印完成
+function UTC_End: Boolean; stdcall; external  'UTC_Prn.dll';
+
+//初始打印机
+function UTC_OpenPrinter(): Boolean; stdcall; external  'UTC_Prn.dll';
+
+//关闭打印机
+function UTC_ClosePrinter(): Boolean; stdcall;external  'UTC_Prn.dll';
+

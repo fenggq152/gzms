@@ -1,0 +1,24 @@
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation=0 print.margin.left=110 print.margin.right=110 print.margin.top=97 print.margin.bottom=97 print.paper.size=0 print.paper.source=0)
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=3933 color="536870912" )
+table(column=(type=char(10) name=dummy dbname="dummy"  )
+)
+rectangle(name=sizing_grid band=background pen.style="0" pen.width="5" pen.color="0" brush.hatch="7" brush.color="553648127" background.mode="2" background.color="-2147483648" x="19" y="18" height="4029" width="3502" )
+line(name=line_9 tag="text_7|text_1@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="2450" y1="900" x2="2450" y2="900" )
+line(name=line_9a tag="text_7|text_1@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="2450" y1="900" x2="1350" y2="900" )
+line(name=line_3 tag="text_3|text_1@2" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="500" x2="1350" y2="700" )
+line(name=line_3a tag="text_3|text_1@2" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="700" x2="1350" y2="700" )
+line(name=line_3b tag="text_3|text_1@2" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="700" x2="1350" y2="900" )
+line(name=line_15 tag="text_3|text_8@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="500" x2="1350" y2="900" )
+line(name=line_15a tag="text_3|text_8@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="900" x2="350" y2="900" )
+line(name=line_14 tag="text_3|text_11@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="500" x2="1350" y2="700" )
+line(name=line_14a tag="text_3|text_11@1" band=detail background.mode="0" background.color="16777215" pen.style="0" pen.width="1" pen.color="0" x1="1350" y1="700" x2="1950" y2="700" )
+text(name=text_5 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Arial" font.family="2" font.height="-20" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="400" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="0" x="600" y="100" height="300" width="1500" text="World Wide Widgets" )
+text(name=text_7 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Arial" font.family="2" font.height="-10" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="400" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="1" x="2200" y="800" height="200" width="500" text="Barney SmithVP Marketing" )
+text(name=text_1 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Arial" font.family="2" font.height="-10" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="400" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="1" x="1100" y="800" height="200" width="500" text="Snuffy SmithVP Manufacturing" )
+text(name=text_11 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Arial" font.family="2" font.height="-10" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="400" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="1" x="1800" y="600" height="200" width="300" text="Sue SmithAdmin." )
+text(name=text_3 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Times New Roman" font.family="1" font.height="-14" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="700" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="2" x="1100" y="400" height="200" width="500" text="Bob SmithCEO" )
+text(name=text_8 tag="" moveable=1 resizeable=1 band=detail font.charset="0" font.face="Arial" font.family="2" font.height="-10" font.italic="0" font.pitch="2" font.strikethrough="0" font.weight="400" font.underline="0" background.mode="2" background.color="16777215" color="0" alignment="2" border="1" x="100" y="800" height="200" width="500" text="Al SmithVP Sales" )
